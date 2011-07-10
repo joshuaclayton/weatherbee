@@ -1,0 +1,34 @@
+<section class="current-conditions">
+  <header>
+    <h1><%= @weather.measurements.first.location %></h1>
+  </header>
+  <p class="temperature"><%= @weather.now.temperature %></p>
+  <ul class="clearfix">
+    <li><strong>Wind</strong> <%= @weather.now.wind %></li>
+    <li><strong>Dew Point</strong> <%= @weather.now.dew_point %></li>
+    <li><strong>Visibility</strong> <%= @weather.now.visibility %></li>
+    <li><strong>Sunrise</strong> <%= @weather.now.sun.rise %></li>
+    <li><strong>Sunset</strong> <%= @weather.now.sun.set %></li>
+    <li><strong>Pressure</strong> <%= @weather.now.pressure %></li>
+  </ul>
+</section>
+
+<table class="forecast">
+  <thead>
+    <tr>
+      <% @weather.forecast.each do |forecast| %>
+        <th><%= forecast.date.strftime("%a") %></th>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <% @weather.forecast.each do |forecast| %>
+        <td>
+          <span class="high"><%= forecast.high %></span>
+          <span class="low"><%= forecast.low %></span>
+        </td>
+      <% end %>
+    </tr>
+  </tbody>
+</table>

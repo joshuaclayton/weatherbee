@@ -1,0 +1,16 @@
+<div id="weather-placeholder">
+  <p class="loading">Loading weather...</p>
+</div>
+
+<% content_for :javascript do %>
+  $(function() {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var location = {
+        lat  : position.coords.latitude,
+        long : position.coords.longitude
+      };
+
+      weather.populate("#weather-placeholder", location);
+    });
+  });
+<% end %>
