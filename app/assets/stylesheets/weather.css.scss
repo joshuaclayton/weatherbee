@@ -10,7 +10,15 @@ html { @include blueprint; }
   body {
     margin: 0;
     padding: 0;
-    background: transparent url("/assets/sunrise.jpg") no-repeat top left;
+    &[data-orient=portrait] {
+      background: transparent url("/assets/sunrise.jpg") no-repeat top left;
+      .temperature { font-size: 10em; }
+    }
+
+    &[data-orient=landscape] {
+      background-image: url("/assets/sunrise-landscape.jpg");
+      .temperature { font-size: 6em; }
+    }
 
     * { color: #fff!important; }
 
@@ -29,7 +37,6 @@ html { @include blueprint; }
       }
 
       .temperature {
-        font-size: 10em;
         line-height: 1.2em;
         padding: 0;
         margin: 0;

@@ -12,4 +12,12 @@
                  });
                }
   };
+
+  var reorient = function(event) {
+    var windowOrientation = (window.orientation % 180 == 0) ? "portrait" : "landscape";
+    $("body").attr("data-orient", windowOrientation);
+  };
+
+  window.onorientationchange = reorient;
+  window.setTimeout(reorient, 0);
 })();
