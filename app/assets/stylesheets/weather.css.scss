@@ -13,12 +13,12 @@ html { @include blueprint; }
     background-attachment: fixed;
 
     &[data-orient=portrait] {
-      background-image: url("/assets/sunrise-startup.png");
+      background-image: url("/assets/background.png");
       .temp { font-size: 9em; }
     }
 
     &[data-orient=landscape] {
-      background-image: url("/assets/sunrise-landscape.jpg");
+      background-image: url("/assets/background-landscape.png");
       .temp { font-size: 6em; }
     }
 
@@ -36,7 +36,7 @@ html { @include blueprint; }
         padding: 1em;
         font-size: 0.3em;
         text-align: center;
-        background-color: rgba(0,0,0,0.2);
+        background-color: rgba(0,0,0,0.7);
       }
 
       section.primary {
@@ -51,6 +51,8 @@ html { @include blueprint; }
             padding: 0;
             margin: 0;
           }
+
+          .condition { font-weight: bold; }
         }
 
         .current, .radar {
