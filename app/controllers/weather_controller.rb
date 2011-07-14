@@ -3,6 +3,8 @@ class WeatherController < ApplicationController
   end
 
   def search
+    @latitude = params[:lat]
+    @longitude = params[:long]
     @weather = find_weather
     render :layout => false
   end
@@ -10,7 +12,7 @@ class WeatherController < ApplicationController
   private
 
   def find_weather
-    weather_query = [params[:lat], params[:long]].join(",")
+    weather_query = [@latitude, @longitude].join(",")
     Barometer.new(weather_query).measure
   end
 end

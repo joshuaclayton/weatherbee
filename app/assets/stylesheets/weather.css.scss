@@ -10,14 +10,16 @@ html { @include blueprint; }
   body {
     margin: 0;
     padding: 0;
+    background-attachment: fixed;
+
     &[data-orient=portrait] {
-      background: transparent url("/assets/sunrise.jpg") no-repeat top left;
-      .temperature { font-size: 10em; }
+      background-image: url("/assets/sunrise-startup.jpg");
+      .temp { font-size: 9em; }
     }
 
     &[data-orient=landscape] {
       background-image: url("/assets/sunrise-landscape.jpg");
-      .temperature { font-size: 6em; }
+      .temp { font-size: 6em; }
     }
 
     * { color: #fff!important; }
@@ -28,6 +30,7 @@ html { @include blueprint; }
     }
 
     .current-conditions {
+
       header {
         * { margin: 0 0 0.5em; }
         padding: 1em;
@@ -36,11 +39,37 @@ html { @include blueprint; }
         background-color: rgba(0,0,0,0.2);
       }
 
-      .temperature {
-        line-height: 1.2em;
-        padding: 0;
-        margin: 0;
-        text-align: center;
+      section.primary {
+        padding: 1em 0;
+
+        .current {
+          text-align: center;
+          width: 55%;
+
+          .temp {
+            line-height: 1.2em;
+            padding: 0;
+            margin: 0;
+          }
+        }
+
+        .current, .radar {
+          display: inline-block;
+          vertical-align: middle;
+        }
+
+        .radar {
+          width: 40%;
+
+          img {
+            width: 100%;
+          }
+
+          .condition {
+            padding: 0;
+            margin: 0;
+          }
+        }
       }
 
       ul {
