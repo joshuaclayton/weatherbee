@@ -13,7 +13,7 @@ html { @include blueprint; }
     background-attachment: fixed;
 
     &[data-orient=portrait] {
-      background-image: url("/assets/sunrise-startup.jpg");
+      background-image: url("/assets/sunrise-startup.png");
       .temp { font-size: 9em; }
     }
 
