@@ -11,7 +11,9 @@
     <link rel="apple-touch-startup-image" href="/assets/background.png">
   </head>
   <body>
-    <%= yield %>
+    <div class="primary-content">
+      <%= yield %>
+    </div>
     <%= javascript_tag do %>
       <%= yield :javascript %>
     <% end %>

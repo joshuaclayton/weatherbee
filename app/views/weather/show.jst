@@ -1,0 +1,44 @@
+<section class="current-conditions">
+  <header>
+    <h1><%= model.measurements[0].location.name %></h1>
+  </header>
+  <section class="primary">
+    <div class="current">
+      <p class="temp"><%= wb.utilities.formatTemperature(model.now.temperature) %></p>
+      <p class="condition"><%= wb.utilities.conditionName(model.now.icon) %></p>
+    </div>
+    <div class="radar">
+      <img src="<%= wb.utilities.radarUrl({ latitude: latitude, longitude: longitude }) %>">
+    </div>
+  </section>
+  <section class="additional">
+    <ul class="clearfix">
+      <li><strong>Wind</strong> <%= model.now.wind.miles %> mph <%= model.now.wind.direction %></li>
+      <li><strong>Dew Point</strong> <%= wb.utilities.formatTemperature(model.now.dew_point) %></li>
+      <li><strong>Visibility</strong> <%= model.now.visibility.miles %> miles</li>
+      <li><strong>Sunrise</strong> <%= wb.utilities.formatTime(model.now.sun.rise) %></li>
+      <li><strong>Sunset</strong> <%= wb.utilities.formatTime(model.now.sun.set) %></li>
+      <li><strong>Pressure</strong> <%= model.now.pressure.inches %></li>
+    </ul>
+
+    <table class="forecast">
+      <thead>
+        <tr>
+          <% _.each(model.forecast, function(forecast) { %>
+            <th><%= wb.utilities.dayName(forecast.date) %></th>
+          <% }); %>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <% _.each(model.forecast, function(forecast) { %>
+            <td>
+              <span class="high"><%= wb.utilities.formatTemperature(forecast.high) %></span>
+              <span class="low"><%= wb.utilities.formatTemperature(forecast.low) %></span>
+            </td>
+          <% }); %>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</section>

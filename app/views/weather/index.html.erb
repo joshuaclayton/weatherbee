@@ -1,16 +1,18 @@
 <div id="weather-placeholder">
-  <p class="loading">Loading weather...</p>
+  <p class="message">Loading weather...</p>
 </div>
 
 <% content_for :javascript do %>
   $(function() {
-    navigator.geolocation.getCurrentPosition(function(position) {
-      var location = {
-        lat  : position.coords.latitude,
-        long : position.coords.longitude
-      };
-
-      weather.populate("#weather-placeholder", location);
+    wb.utilities.getCurrentLocation({
+      success: function() {
+        new wb.Controllers.Weather();
+        Backbone.history.start();
+      },
+      failure: function() {
+        wb.loadTempData = true;
+        this.success();
+      }
     });
   });
 <% end %>

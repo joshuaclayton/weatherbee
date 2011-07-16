@@ -26,11 +26,10 @@ html { @include blueprint; }
 
     #weather-placeholder {
       text-align: center;
-      p.loading { padding: 1em; }
+      p.message { padding: 1em; }
     }
 
     .current-conditions {
-
       header {
         * { margin: 0 0 0.5em; }
         padding: 1em;
@@ -74,10 +73,13 @@ html { @include blueprint; }
         }
       }
 
+      .additional {
+        background: rgba(0,0,0,0.5);
+      }
+
       ul {
-        background-color: rgba(0,0,0,0.5);
         font-size: 0.9em;
-        margin: 0 auto 2em;
+        margin: 0 auto 1em;
         padding: 1em 0;
         li {
           list-style-type: none;
@@ -90,9 +92,14 @@ html { @include blueprint; }
     }
 
     table.forecast {
+      tr, th, td { margin: 0; padding: 0; }
+      thead th {
+        background: transparent;
+      }
+
       margin: 0 auto;
       .high, .low { display: block; text-align: center; }
-      .high       { font-weight: bold; font-size: 1.3em; }
+      .high       { font-weight: bold; font-size: 1.8em; }
       .low        { font-size: .8em; }
     }
   }
