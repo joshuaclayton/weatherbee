@@ -1,3 +1,0 @@
-(function() {
-  wb.utilities.setupOrientation();
-})();

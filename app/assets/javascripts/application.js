@@ -6,8 +6,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require underscore
-//= require backbone
+//= require ../../../vendor/assets/javascripts/underscore
+//= require_tree ../../../vendor/assets/javascripts
 //= require templates
 //= require wb
 //= require_tree .

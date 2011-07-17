@@ -15,6 +15,7 @@
       <%= yield %>
     </div>
     <%= javascript_tag do %>
+      wb.utilities.setupOrientation();
       <%= yield :javascript %>
     <% end %>
   </body>
