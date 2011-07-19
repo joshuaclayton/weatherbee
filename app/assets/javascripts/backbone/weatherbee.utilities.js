@@ -14,7 +14,8 @@
     },
 
     dayName: function(date) {
-      var date = new Date(date),
+      var dateMatch = date.match(/(\d{4})-(\d{2})-(\d{2})/);
+      var date = new Date(parseInt(dateMatch[1]), parseInt(dateMatch[2]) - 1, parseInt(dateMatch[3])),
           days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
       return days[date.getDay()];
     },
