@@ -4,6 +4,10 @@
 
 <% content_for :javascript do %>
   $(function() {
+    $(document).bind("swipe", function(e) {
+      $(".radar").fadeToggle();
+    });
+
     wb.utilities.getCurrentLocation({
       success: function() {
         new wb.Controllers.Weather();
