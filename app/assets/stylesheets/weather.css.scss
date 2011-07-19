@@ -81,14 +81,15 @@ html { @include blueprint; }
       }
 
       ul {
-        font-size: 0.9em;
+        font-size: 1.2em;
         margin: 0 auto 1em;
         padding: 1em 0;
+
         li {
           list-style-type: none;
           float: left;
           text-align: center;
-          width: 33.3%;
+          width: 50%;
           strong:after { content: ": "; }
         }
       }
