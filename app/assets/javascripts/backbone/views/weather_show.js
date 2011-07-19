@@ -1,5 +1,4 @@
 wb.Views.WeatherShow = Backbone.View.extend({
-  name: "WeatherShow",
   initialize: function() {},
   render: function () {
     var element = this.el;
@@ -7,7 +6,7 @@ wb.Views.WeatherShow = Backbone.View.extend({
       $(element).html(JST["weather/show"]({ model     : weather,
                                             latitude  : wb.current.latitude,
                                             longitude : wb.current.longitude }));
-      $(".primary-content").html($(element));
+      $(".content").html($(element));
     });
   }
 });

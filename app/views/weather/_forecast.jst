@@ -1,0 +1,19 @@
+<table class="forecast">
+  <thead>
+    <tr>
+      <% _.each(model.forecast, function(forecast) { %>
+        <th><%= wb.utilities.dayName(forecast.date) %></th>
+      <% }); %>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <% _.each(model.forecast, function(forecast) { %>
+        <td>
+          <span class="high"><%= wb.utilities.formatTemperature(forecast.high) %></span>
+          <span class="low"><%= wb.utilities.formatTemperature(forecast.low) %></span>
+        </td>
+      <% }); %>
+    </tr>
+  </tbody>
+</table>
