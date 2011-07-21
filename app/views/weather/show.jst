@@ -16,9 +16,9 @@
       <li><strong>Wind</strong> <%= model.now.wind.miles %> mph <%= model.now.wind.direction %></li>
       <li><strong>Dew Point</strong> <%= wb.utilities.formatTemperature(model.now.dew_point) %></li>
       <li><strong>Visibility</strong> <%= model.now.visibility.miles %> miles</li>
+      <li><strong>Pressure</strong> <%= model.now.pressure.inches %></li>
       <li><strong>Sunrise</strong> <%= wb.utilities.formatTime(model.now.sun.rise) %></li>
       <li><strong>Sunset</strong> <%= wb.utilities.formatTime(model.now.sun.set) %></li>
-      <li><strong>Pressure</strong> <%= model.now.pressure.inches %></li>
     </ul>
 
     <%= JST["weather/_forecast"]({ model : model }) %>
