@@ -6,77 +6,99 @@
 
 html { @include blueprint; }
 
+.radar {
+  display: none;
+  position: absolute;
+  z-index: 2;
+  margin: auto;
+  background: rgba(0,0,0,0.85);
+
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+
+  img {
+    width: 90%;
+    margin: 20% 5%;
+    display: block;
+    vertical-align: middle;
+  }
+}
+
 @media screen and (max-device-width: 640px) {
   body {
     margin: 0;
     padding: 0;
 
     &[data-orient=portrait] {
-      .temp { font-size: 11em; }
+      .current-temp { font-size: 11em; }
     }
 
     &[data-orient=landscape] {
-      .temp { font-size: 6em; }
+      .current-temp { font-size: 6em; }
     }
-
 
     * { color: #222!important; }
 
     #weather-placeholder {
       text-align: center;
-      p.message { padding: 1em; }
-    }
-
-    .radar {
-      display: none;
-      position: absolute;
-      z-index: 2;
-      margin: auto;
-      background: rgba(0,0,0,0.85);
-
-      width: 100%;
-      height: 100%;
-      vertical-align: middle;
-
-      img {
-        width: 90%;
-        margin: 20% 5%;
-        display: block;
-        vertical-align: middle;
-      }
+      p.message { padding: 1em; text-transform: uppercase; font-weight: bold; }
     }
 
     header {
       h1 { margin: 0; font-weight: bold; }
       padding: 1em 0;
-      font-size: 0.65em;
+      font-size: 0.75em;
       font-weight: bold;
       text-align: center;
     }
 
-    .current-conditions {
-      section.primary {
-        .current {
-          text-align: center;
-          vertical-align: middle;
+    .main-wrapper {
+      display: -webkit-box;
+      display: -moz-box;
+      display: box;
 
-          .temp {
-            line-height: 1em;
-            padding: 0;
-            margin: 0;
-          }
+      -webkit-box-orient: vertical;
+      -moz-box-orient: vertical;
+      box-orient: vertical;
+      height: 460px;
 
-          .condition {
-            font-weight: bold;
-            font-size: 1.2em;
-          }
-        }
+      .box-wrapper.main, .box-wrapper.stats {
+        -webkit-box-flex: 1;
+        -moz-box-flex: 1;
+        box-flex: 1;
       }
 
-      .additional {
-        position: absolute;
-        bottom: 0;
-        padding-bottom: 1em;
+      .box-wrapper.main {
+        padding: .75em 0;
+      }
+
+      .box-wrapper.forecast {
+        padding-bottom: 1.5em;
+      }
+
+      section.primary {
+        display: -webkit-box;
+        -webkit-box-orient: horizontal;
+        -webkit-box-align: center;
+
+        .current-temp {
+          line-height: 1em;
+          margin: 0;
+          padding: 0;
+          -webkit-box-flex: 1;
+          text-align: center;
+        }
+
+        .daily {
+          -webkit-box-orient: vertical;
+          .daily-high, .daily-low, .condition {
+            -webkit-flex-box: 1;
+            padding: 0 .5em;
+            margin: 0;
+            font-size: 2em;
+          }
+        }
       }
 
       ul {
@@ -95,15 +117,13 @@ html { @include blueprint; }
     }
 
     table.forecast {
-      tr, th, td { margin: 0; padding: 0; }
-      thead th {
-        background: transparent;
-      }
-
       margin: 0 auto;
-      .high, .low { display: block; text-align: center; }
-      .high       { font-weight: bold; font-size: 1.8em; }
-      .low        { font-size: .8em; }
+
+      tr, th, td  { margin: 0; padding: 0; }
+      thead th    { background: transparent; }
+      .high, .low { display: block; text-align: center; margin-left: .3em; }
+      .high       { font-weight: bold; font-size: 1.7em; }
+      .low        { font-size: .9em; }
     }
   }
 }

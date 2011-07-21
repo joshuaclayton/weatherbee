@@ -1,26 +1,36 @@
 <div class="radar">
   <img src="<%= wb.utilities.radarUrl({ latitude: latitude, longitude: longitude }) %>">
 </div>
-<header>
-  <h1><%= model.measurements[0].location.name %></h1>
-</header>
-<section class="current-conditions">
-  <section class="primary">
-    <div class="current">
-      <p class="temp"><%= wb.utilities.formatTemperature(model.now.temperature) %></p>
-      <p class="condition"><%= wb.utilities.conditionName(model.now.icon) %></p>
-    </div>
-  </section>
-  <section class="additional">
-    <ul class="clearfix">
-      <li><strong>Wind</strong> <%= model.now.wind.miles %> mph <%= model.now.wind.direction %></li>
-      <li><strong>Dew Point</strong> <%= wb.utilities.formatTemperature(model.now.dew_point) %></li>
-      <li><strong>Visibility</strong> <%= model.now.visibility.miles %> miles</li>
-      <li><strong>Pressure</strong> <%= model.now.pressure.inches %></li>
-      <li><strong>Sunrise</strong> <%= wb.utilities.formatTime(model.now.sun.rise) %></li>
-      <li><strong>Sunset</strong> <%= wb.utilities.formatTime(model.now.sun.set) %></li>
-    </ul>
 
+<section class="main-wrapper">
+  <div class="box-wrapper">
+    <header>
+      <h1><%= model.measurements[0].location.name %></h1>
+    </header>
+  </div>
+  <div class="box-wrapper main">
+    <section class="primary">
+      <div class="current-temp"><%= wb.utilities.formatTemperature(model.now.temperature) %></div>
+      <div class="daily">
+        <p class="daily-high"><strong>H:</strong> <%= wb.utilities.formatTemperature(model.forecast[0].high) %></p>
+        <p class="daily-low"><strong>L:</strong> <%= wb.utilities.formatTemperature(model.forecast[0].low) %></p>
+        <p class="condition"><%= wb.utilities.conditionName(model.now.icon) %></p>
+      </div>
+    </section>
+  </div>
+  <div class="box-wrapper stats">
+    <section class="additional">
+      <ul class="clearfix">
+        <li><strong>Wind</strong> <%= model.now.wind.miles %>mph <%= model.now.wind.direction %></li>
+        <li><strong>Dew Point</strong> <%= wb.utilities.formatTemperature(model.now.dew_point) %></li>
+        <li><strong>Visibility</strong> <%= model.now.visibility.miles %> miles</li>
+        <li><strong>Pressure</strong> <%= model.now.pressure.inches %>in</li>
+        <li><strong>Sunrise</strong> <%= wb.utilities.formatTime(model.now.sun.rise) %></li>
+        <li><strong>Sunset</strong> <%= wb.utilities.formatTime(model.now.sun.set) %></li>
+      </ul>
+    </section>
+  </div>
+  <div class="box-wrapper forecast">
     <%= JST["weather/_forecast"]({ model : model }) %>
-  </section>
+  </div>
 </section>
