@@ -1,4 +1,4 @@
-wb.Controllers.Weather = Backbone.Controller.extend({
+wb.Routers.Weather = Backbone.Router.extend({
   routes: {
     "": "show"
   },

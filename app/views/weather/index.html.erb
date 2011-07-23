@@ -14,7 +14,7 @@
 
     wb.utilities.getCurrentLocation({
       success: function() {
-        new wb.Controllers.Weather();
+        new wb.Routers.Weather();
         Backbone.history.start();
         wb.getWeather(wb.current.latitude, wb.current.longitude);
       },
