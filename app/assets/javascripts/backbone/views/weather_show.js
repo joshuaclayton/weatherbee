@@ -1,9 +1,8 @@
 wb.Views.WeatherShow = Backbone.View.extend({
   initialize: function() {
     this.model = wb.current.weather;
-    this.model.bind("change", this.render);
-
     _.bindAll(this, "render");
+    this.model.bind("change", this.render);
     this.template = JST["weather/show"];
   },
   render: function () {
