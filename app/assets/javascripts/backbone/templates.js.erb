@@ -1,6 +1,0 @@
-(function() {
-  window.JST = window.JST || {};
-  <% TemplatesHelper.build_jst.each do |template_name, template_content| %>
-    window.JST["<%= template_name %>"] = _.template(<%= template_content.to_json %>);
-  <% end %>
-})();

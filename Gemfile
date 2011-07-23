@@ -10,6 +10,8 @@ gem "barometer"
 gem "bourbon"
 gem "compass", git: "https://github.com/chriseppstein/compass.git", branch: "rails31"
 
+gem "ejs"
+
 # Asset template engines
 gem 'sass-rails', "~> 3.1.0.rc"
 gem 'coffee-script'

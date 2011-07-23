@@ -8,6 +8,6 @@
 //= require jquery_ujs
 //= require ../../../vendor/assets/javascripts/underscore
 //= require_tree ../../../vendor/assets/javascripts
-//= require backbone/templates
+//= require_tree ../templates
 //= require backbone/weatherbee
 //= require_tree .
