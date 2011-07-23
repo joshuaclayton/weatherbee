@@ -10,10 +10,13 @@
       $(".radar").fadeToggle();
     });
 
+    wb.current.weather = new wb.Models.Weather({});
+
     wb.utilities.getCurrentLocation({
       success: function() {
         new wb.Controllers.Weather();
         Backbone.history.start();
+        wb.getWeather(wb.current.latitude, wb.current.longitude);
       },
       failure: function() {
         wb.loadTempData = true;

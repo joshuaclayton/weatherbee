@@ -1,12 +1,15 @@
 wb.Views.WeatherShow = Backbone.View.extend({
-  initialize: function() {},
+  initialize: function() {
+    this.model = wb.current.weather;
+    _.bindAll(this, "render");
+    this.model.bind("change", this.render);
+    this.template = JST["weather/show"];
+  },
   render: function () {
-    var element = this.el;
-    wb.getWeather(wb.current.latitude, wb.current.longitude, function(weather) {
-      $(element).html(JST["weather/show"]({ model     : weather,
-                                            latitude  : wb.current.latitude,
-                                            longitude : wb.current.longitude }));
-      $(".content").html($(element));
-    });
+    $(this.el).html(this.template({ model     : wb.current.weather.toJSON(),
+                                    latitude  : wb.current.latitude,
+                                    longitude : wb.current.longitude }));
+    $(".content").html($(this.el));
+    return this;
   }
 });

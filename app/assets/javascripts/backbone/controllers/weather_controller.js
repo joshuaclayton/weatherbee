@@ -5,6 +5,5 @@ wb.Controllers.Weather = Backbone.Controller.extend({
 
   show: function() {
     wb.current.view = new wb.Views.WeatherShow();
-    wb.current.view.render();
   },
 });
