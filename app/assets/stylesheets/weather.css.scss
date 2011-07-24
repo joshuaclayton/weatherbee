@@ -96,8 +96,11 @@ html { @include blueprint; }
             -webkit-flex-box: 1;
             padding: 0 .5em;
             margin: 0;
+          }
+          .daily-high, .daily-low {
             font-size: 2em;
           }
+          .condition { font-size: 1.2em; }
         }
       }
 
